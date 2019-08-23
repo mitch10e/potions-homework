@@ -1,18 +1,7 @@
 defmodule Gears do
-  @moduledoc """
-  Documentation for Gears.
-  """
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Gears.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def answer(pegs) do
+    [-1, -1]
   end
+
 end
