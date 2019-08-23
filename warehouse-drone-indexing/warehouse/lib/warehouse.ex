@@ -31,6 +31,9 @@ defmodule Warehouse do
   # Recursive function for finding the value of the x, y coordinate
   defp findWithRecursion(x, y , currentX, currentY, value) do
     cond do
+      # If the current x and y positions match the desired x, y coordinate, return the value.
+      currentX == x and currentY == y ->
+        value
       # If the current x position is less than the x coordinate, move to the next coordinate and increase
       # the value accordingly.
       currentX < x ->
@@ -39,9 +42,6 @@ defmodule Warehouse do
       # the value accordinly.
       currentY < y ->
         -1
-      # If the current x and y positions match the desired x, y coordinate, return the value.
-      currentX == x and currentY == y ->
-        value
       # If for some reason we went to far (most likely if the x, y coordinate is invalid) return a -1 as an error code.
       true
         -1
