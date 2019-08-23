@@ -29,26 +29,32 @@ defmodule Warehouse do
   end
 
   # Recursive function for finding the value of the x, y coordinate
-  defp findWithRecursion(x, y , currentX, currentY, value) do
+  # This is the main brains behind the find/2 function defined in this module
+  defp findWithRecursion(x, y, currentX, currentY, value) do
     cond do
       # If the current x and y positions match the desired x, y coordinate, return the value.
       currentX == x and currentY == y ->
         value
+
       # If the current x position is less than the x coordinate, move to the next coordinate and increase
       # the value accordingly.
       currentX < x ->
         nextX = currentX + 1
-        nextDelta = nextX
-        nextValue = value + nextDelta
+        delta = nextX
+        nextValue = value + delta
         findWithRecursion(x, y, nextX, currentY, nextValue)
+
       # If the current y position is less than the y coordinate, move to the next coordinate and increase
       # the value accordinly.
       currentY < y ->
-        -1
+        nextY = currentY + 1
+        delta = nextY + currentX - 2
+        nextValue = value + delta
+        findWithRecursion(x, y, currentX, nextY, nextValue)
+
       # If for some reason we went to far (most likely if the x, y coordinate is invalid) return a -1 as an error code.
-      true
+      true ->
         -1
     end
   end
-
 end
