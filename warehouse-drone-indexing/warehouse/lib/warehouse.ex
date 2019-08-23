@@ -20,10 +20,15 @@ defmodule Warehouse do
         1  2  3  4  5  6  7  8  9
   """
 
+  @doc """
+  The only function available in the Warehouse module. This function finds the index of an item
+  based on its given x, y coordinate in the storage system, as described in the moduledoc.
+  """
   def find(x, y) do
     findWithRecursion(x, y, 1, 1, 1)
   end
 
+  # Recursive function for finding the value of the x, y coordinate
   defp findWithRecursion(x, y , currentX, currentY, value) do
 
   end
