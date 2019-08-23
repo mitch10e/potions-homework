@@ -10,4 +10,15 @@ defmodule Gears do
     [-1, -1]
   end
 
+  defp lastGearSize(pegs) do
+    positive = true
+    distance = 0
+
+  end
+
+  defp iteratePegs([peg_a, peg_b | pegs]) do
+    distance = peg_b - peg_a
+
+  end
+
 end
