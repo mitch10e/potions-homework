@@ -20,4 +20,12 @@ defmodule Warehouse do
         1  2  3  4  5  6  7  8  9
   """
 
+  def find(x, y) do
+    findWithRecursion(x, y, 1, 1, 1)
+  end
+
+  defp findWithRecursion(x, y , currentX, currentY, value) do
+
+  end
+
 end
