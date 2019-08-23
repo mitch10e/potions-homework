@@ -5,6 +5,7 @@ Items in the warehouse are stored in a diagonal pattern. Below is an example of 
 The `|` symbol represents the wall, and `-` represents the ground. The bottom left corner is the origin,
 which can be represented as the coordinate (1,1)
 
+```
 9 | 37
 8 | 29 38
 7 | 22 30 39
@@ -16,6 +17,7 @@ which can be represented as the coordinate (1,1)
 1 | 1  3  6  10 15 21 28 36 45
   * -  -  -  -  -  -  -  -  -
     1  2  3  4  5  6  7  8  9
+```
 
 A helpful tip is that the diagonal axis where x == y, you can take x^2 + (x-1)^2 to solve.
 Example: [5, 5]
