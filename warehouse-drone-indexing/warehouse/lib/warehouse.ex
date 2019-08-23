@@ -18,14 +18,42 @@ defmodule Warehouse do
     1 | 1  3  6  10 15 21 28 36 45
       * -  -  -  -  -  -  -  -  -
         1  2  3  4  5  6  7  8  9
+
+    A helpful tip is that the diagonal axis where x == y, you can take x^2 + (x-1)^2 to solve.
+    Example: [5, 5]
+    5 * 5 + 4 * 4 == 25 + 16 == 41
   """
+
+  @doc """
+  I'm not really sure how elixir handles bad input, seeing as they want to keep their methods short,
+  so I'm trying this guard(?) statement to catch bad input and returning -1 in that case.
+  """
+  def find(x, y) when x < 1 or y < 1, do: -1
 
   @doc """
   The only function available in the Warehouse module. This function finds the index of an item
   based on its given x, y coordinate in the storage system, as described in the moduledoc.
   """
   def find(x, y) do
-    findWithRecursion(x, y, 1, 1, 1)
+    if x == y do
+      find_axis(x, y)
+    else
+      findWithRecursion(x, y, 1, 1, 1)
+    end
+  end
+
+  @doc """
+  Due to the nature of the numbers on the diagonal axis where x is equal to y, they can actually be found
+  by taking x^2 + (x-1)^2. By finding this formula I have discovered that there is an error in the Divvy Test Case Prompt
+  for the maximum value [100000, 100000], as it should be 19999800001, not 20000000001, which is 200000 more than the correct answer,
+  or 199980001 + x + y.
+  """
+  def find_axis(x, y) do
+    if x != y do
+      -1
+    else
+      x * y + (x - 1) * (y - 1)
+    end
   end
 
   # Recursive function for finding the value of the x, y coordinate

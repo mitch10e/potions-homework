@@ -6,7 +6,6 @@ defmodule WarehouseTest do
     assert Warehouse.find(1, 1) == 1
   end
 
-
   test "find1_2" do
     assert Warehouse.find(1, 2) == 2
   end
@@ -52,7 +51,7 @@ defmodule WarehouseTest do
   end
 
   test "find3_2" do
-      assert Warehouse.find(3, 2) == 9
+    assert Warehouse.find(3, 2) == 9
   end
 
   test "find3_3" do
@@ -64,7 +63,7 @@ defmodule WarehouseTest do
   end
 
   test "find4_1" do
-      assert Warehouse.find(4, 1) == 10
+    assert Warehouse.find(4, 1) == 10
   end
 
   test "find4_2" do
@@ -92,6 +91,20 @@ defmodule WarehouseTest do
   end
 
   test "findGalaxyFarFarAway" do
-    assert Warehouse.find(100000, 100000) == 20000000001
+    # Test case example from the recruiters is incorrect. See comments on Warehouse module.
+    # assert Warehouse.find(100000, 100000) == 20000000001
+    assert Warehouse.find(100000, 100000) == 19999800001
+  end
+
+  test "badInputX" do
+    assert Warehouse.find(0, 1) == -1
+  end
+
+  test "badInputY" do
+    assert Warehouse.find(1, 0) == -1
+  end
+
+  test "badInputMatchX_Y" do
+    assert Warehouse.find(0, 0) == -1
   end
 end
