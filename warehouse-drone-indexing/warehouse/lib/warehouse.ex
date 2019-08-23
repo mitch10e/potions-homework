@@ -37,7 +37,10 @@ defmodule Warehouse do
       # If the current x position is less than the x coordinate, move to the next coordinate and increase
       # the value accordingly.
       currentX < x ->
-        -1
+        nextX = currentX + 1
+        nextDelta = nextX
+        nextValue = value + nextDelta
+        findWithRecursion(x, y, nextX, currentY, nextValue)
       # If the current y position is less than the y coordinate, move to the next coordinate and increase
       # the value accordinly.
       currentY < y ->
