@@ -42,13 +42,11 @@ defmodule Warehouse do
     end
   end
 
-  @doc """
-  Due to the nature of the numbers on the diagonal axis where x is equal to y, they can actually be found
-  by taking x^2 + (x-1)^2. By finding this formula I have discovered that there is an error in the Divvy Test Case Prompt
-  for the maximum value [100000, 100000], as it should be 19999800001, not 20000000001, which is 200000 more than the correct answer,
-  or 199980001 + x + y.
-  """
-  def find_axis(x, y) do
+  # Due to the nature of the numbers on the diagonal axis where x is equal to y, they can actually be found
+  # by taking x^2 + (x-1)^2. By finding this formula I have discovered that there is an error in the Divvy Test Case Prompt
+  # for the maximum value [100000, 100000], as it should be 19999800001, not 20000000001, which is 200000 more than the correct answer,
+  # or 199980001 + x + y.
+  defp find_axis(x, y) do
     if x != y do
       -1
     else
